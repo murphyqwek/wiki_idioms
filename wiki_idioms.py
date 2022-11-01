@@ -2,7 +2,7 @@ from random import randint
 import requests
 from bs4 import BeautifulSoup as bs
 
-def r__(c):
+def skip_idiom(c):
     if randint(0, c) == 0: return 0
     else: return 1
 
@@ -13,7 +13,7 @@ def generate_(tables, chance, count_):
         count = 0
         for i in range(1, len(rows)):
             if count == count_: break
-            if r__(chance): continue
+            if skip_idiom(chance): continue
             row = rows[i].findChildren("td")
             if row[0].text.lower()[0] == 'ё': break
             if len(row) >= 2:
@@ -37,7 +37,7 @@ tables = soup.find_all('table', class_='wikitable sortable')
 
 n = int(input("Введите количество файлов: "))
 chance = int(input("Введите шанс: "))
-count = int(input("Введите количество: "))
+count = int(input("Введите максимальное количество идиом, начинающиеся на одну букву: "))
 
 for i in range(100):
     if randint(0, chance) == 0: print(0)
