@@ -39,9 +39,6 @@ n = int(input("Введите количество файлов: "))
 chance = int(input("Введите шанс: "))
 count = int(input("Введите максимальное количество идиом, начинающиеся на одну букву: "))
 
-for i in range(100):
-    if randint(0, chance) == 0: print(0)
-
 for kk in range(n):
     uju = generate_(tables, chance, count)
     with open(f"idioms_{kk}.txt", 'w', encoding="utf-8") as f:
